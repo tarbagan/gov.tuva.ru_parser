@@ -14,7 +14,7 @@ def url_base():
     
 def parser():
     """multiprocessing perser function """
-    pool = ThreadPool(5)
+    pool = ThreadPool(5) #multiprocessing stream
     try:
         r = pool.map(requests.get, url_base())
     except:
@@ -27,5 +27,4 @@ def parser():
             link = "http://gov.tuva.ru"+(re.findall(r'<a href="(.*?)"><b>', news)[0])
             print (title)
             print (link)
-            
 parser()
